@@ -55,3 +55,55 @@ function checkAnswer() {
     const num1 = parseInt(document.getElementById("operand1").textContent);
     const num2 = parseInt(document.getElementById("operand2").textContent);
     const operator = document.getElementById("operator").textContent;
+
+   let correctAnswer;
+    let gameType;
+
+    switch (operator) {
+        case "+":
+            correctAnswer = num1 + num2;
+            gameType = "addition";
+            break;
+        case "-":
+            correctAnswer = num1 - num2;
+            gameType = "subtract";
+            break;
+        case "x":
+            correctAnswer = num1 * num2;
+            gameType = "multiply";
+            break;
+        case "/":
+            correctAnswer = Math.floor(num1 / num2);
+            gameType = "division";
+            break;
+    }
+ 
+  if (userAnswer === correctAnswer) {
+        alert("✅ Correct! Well done!");
+        incrementScore();
+    } else {
+        alert(`❌ Wrong! The correct answer was ${correctAnswer}.`);
+        incrementWrongAnswer();
+    }
+
+    runGame(gameType);
+}
+
+// Display the question on screen
+function displayQuestion(num1, num2, operator) {
+    document.getElementById("operand1").textContent = num1;
+    document.getElementById("operand2").textContent = num2;
+    document.getElementById("operator").textContent = operator;
+}
+
+// Increase correct score
+function incrementScore() {
+    let oldScore = parseInt(document.getElementById("score").textContent);
+    document.getElementById("score").textContent = ++oldScore;
+}
+
+// Increase incorrect score
+function incrementWrongAnswer() {
+    let oldScore = parseInt(document.getElementById("incorrect").textContent);
+    document.getElementById("incorrect").textContent = ++oldScore;
+}

@@ -7,3 +7,17 @@ body {
     margin: 0;
     padding: 0;
 }
+
+/* Heading */
+.heading {
+    background-color: #6c63ff;
+    color: white;
+    padding: 20px;
+    font-family: 'Righteous', cursive;
+}
+
+.logo {
+    height: 50px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
